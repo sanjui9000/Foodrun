@@ -3,7 +3,7 @@ body {
   font-size: 14px;
   color: #212121;
   line-height: 1.4;
-  background-color: #F9F9F9;
+  background-color: #dadada;
 }
 
 html, body {
@@ -101,16 +101,25 @@ h1 {
 * Image grid related styling
 */
 
+#search-container {
+  margin: 0 auto 20px auto;
+  background-color: rgba(255, 255, 255, 0.55);
+  padding: 20px;
+  clear: both;
+}
+
 #eventsGallery {
-  display: flex;
-  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  height: 79vh;
+  overflow-y: auto;
 }
 
 .eventImg {
   align-self: center;
   margin: .5rem;
-  width: 275px !important;
-  height: 200px;
+  width: 265px !important;
+  height: 180px;
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
@@ -159,6 +168,22 @@ input.form-control {
 
 textarea {
   resize: none;
+}
+
+#search-container input {
+  width: 85%;
+  padding: 10px;
+  border-radius: 0px;
+  border: 0;
+}
+
+#search-container button {
+  width: 14.4%;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 0px;
+  border: 0;
+  cursor: not-allowed;
 }
 
 /*

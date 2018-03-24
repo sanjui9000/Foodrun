@@ -30,7 +30,13 @@
   </nav>
   <!--/.navbar-->
 
+
   <div class="container">
+
+    <div id="search-container" class="row">
+      <input type="text" name="city" id="searchItems" placeholder="Search for tags, food items etc." />
+      <button disabled id="searchButton">Search</button>
+    </div>
     <section id="eventsGallery">
     </section>
   </div>
@@ -288,6 +294,7 @@
       $(this).serializeArray().forEach(function(item) {
         data[item.name] = item.value;
       });
+
       data['userId'] = localStorage.uid;
       data['dateTime'] = new Date();
       $.ajax({
@@ -300,6 +307,10 @@
             message = 'Post added successfully.';
             myFunction(4800);
             $("#submissionModal").modal('hide');
+            $("#submissionform")[0].reset();
+            $('#imagePreview').css('background-image', 'url(' + './assets/Blank_Pic.png' + ')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
             $("#eventsGallery").empty();
             onLoad1();
           }
