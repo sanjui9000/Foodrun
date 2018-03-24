@@ -1,0 +1,4 @@
+1. Error from login is thrown no matter what. Need to fix it.
+2. Handle login error based on type of error.
+4. Clean up code.
+5. Messages should be displayed in same way... Some places bootstrap alerts are there, some places toasts are there. Fix those.

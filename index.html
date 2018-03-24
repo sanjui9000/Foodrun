@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FoodRun</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/styling.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+
+    <div class="container">
+
+      <h1 class="logo"><a href="#">FoodRun</a></h1>
+      <ul class="nav nav-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li id="signupbutton" data-target="#signupModal" data-toggle="modal"><a href="#">Signup</a></li>
+        <li id="loginbutton" data-target="#loginModal" data-toggle="modal"><a href="#">Login</a></li>
+        <li id="logoutbutton"><a href="#">Logout</a></li>
+        <li id="addSubmission" data-target="#submissionModal" data-toggle="modal"><a href="#">Add Post</a></li>
+      </ul>
+    </div>
+    <!--/.container-->
+
+  </nav>
+  <!--/.navbar-->
+
+  <div class="container">
+    <section id="eventsGallery">
+    </section>
+  </div>
+  <!--/.container-->
+
+  <!-- Toast -->
+
+  <div id="snackbar"></div>
+
+  <!-- Toast end -->
+
+  <!-- Modals -->
+
+  <!--Sign up form-->
+  <form id="signupform" data-signup="form">
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+
+            <div id="signupmessage"></div>
+
+            <div class="form-group">
+              <label for="username" class="sr-only">Username:</label>
+              <input class="form-control" required type="text" id="username" name="username" placeholder="Username" maxlength="30">
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="sr-only">Email:</label>
+              <input class="form-control" required type="email" id="email" name="email" placeholder="Email Address" maxlength="50">
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="sr-only">Choose a password:</label>
+              <input class="form-control" required type="password" id="password" name="password" placeholder="Choose a password" maxlength="30">
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="sr-only">Confirm password:</label>
+              <input class="form-control" required type="password" id="password2" name="password2" placeholder="Confirm password" maxlength="30">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-primary" name="signup" type="submit" value="Sign up">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <!--Login form-->
+
+  <form id="loginform" data-login="form">
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel1">Login:</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="alert alert-danger" id="loginmessage"></div>
+
+            <div class="form-group">
+              <label for="loginemail1" class="sr-only">Email:</label>
+              <input class="form-control" required type="text" id="loginemail1" name="loginemail1" placeholder="Username">
+            </div>
+
+            <div class="form-group">
+              <label for="loginpassword1" class="sr-only">Password</label>
+              <input class="form-control" required type="password" id="loginpassword1" name="loginpassword1" placeholder="Password">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-success" name="login" id="login" type="submit" value="Login">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- >
+
+  <!--Submission form-->
+
+  <div class="modal fade" id="submissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Add Post:</h4>
+        </div>
+        <form id="submissionform" data-submission="form">
+          <div class="modal-body">
+
+
+            <div class="alert alert-danger" id="submissionMessage"></div>
+
+            <div class="col-lg-6">
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type="file" name="imageUpload" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload"></label>
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview" style="background-image: url(./assets/Blank_Pic.png);">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 detsForm">
+              <div class="form-group">
+                <label for="uid">Uid:</label>
+                <input disabled class="form-control" required type="text" id="uid" name="uid">
+              </div>
+
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input required class="form-control" type="text" id="name" name="name" placeholder="Name">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea required rows="5" class="form-control" name="description" id="description" placeholder="Enter some description about your submission..!"></textarea>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-success" name="submission" id="submission" type="submit" value="Submit">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- >
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="scripts/formhandler.js" charset="utf-8"></script>
+  <script src="scripts/remotedatastore.js" charset="utf-8"></script>
+  <script src="scripts/main.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    $('#logoutbutton').on('click', function() {
+      localStorage.clear();
+      $('#loginbutton').show();
+      $('#signupbutton').show();
+      $('#logoutbutton').hide();
+      $('#addSubmission').hide();
+      message = 'Logged out successfully.';
+      myFunction(4800);
+    });
+
+    // Snackbar related
+
+    var message = '';
+    var imgUrl = '';
+
+    function myFunction(timeout) {
+      // Get the snackbar DIV
+      var x = document.getElementById("snackbar")
+      $('#snackbar').text(this.message);
+      // Add the "show" class to DIV
+      x.className = "";
+      x.className = "show";
+
+      // After x seconds, remove the show class from DIV
+      setTimeout(function() {
+        x.className = x.className.replace("show", "");
+      }, timeout);
+    }
+
+    // Image related
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+          $('#imagePreview').hide();
+          $('#imagePreview').fadeIn(650);
+
+          imgUrl = e.target.result;
+        }.bind(this);
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imageUpload").change(function() {
+      file1 = this.files[0];
+
+      imageType1 = file1.type;
+      imageSize1 = file1.size;
+
+      // Check type
+      var acceptableTypes = ["image/jpeg", "image/png", "image/jpeg"];
+      wrongType1 = ($.inArray(imageType1, acceptableTypes) == -1)
+      if (wrongType1) {
+        $("#submissionMessage").html("Only jpeg, png and jpeg images are accepted.");
+        return false;
+      }
+
+      // Check size
+      if (imageSize1 > 3 * 1024 * 1024) {
+        $("#submissionMessage").html("Please upload image less than 3MB.");
+        return false;
+      }
+
+      readURL(this);
+    });
+
+    // Update picture
+
+    $("#submissionform").submit(function() {
+      event.preventDefault();
+      file1 = $("#imageUpload")[0].files[0];
+      if (!file1) {
+        message = 'Please upload a picture.';
+        myFunction(4800);
+        return false;
+      }
+
+      if (wrongType1) {
+        $("#submissionMessage").html("Only jpeg, png and jpeg images are accepted.");
+        $("#submissionMessage").slideToggle();
+        return false;
+      }
+
+      if (imageSize1 > 3 * 1024 * 1024) {
+        $("#submissionMessage").html("Please upload image less than 3MB.");
+        $("#submissionMessage").slideToggle();
+        return false;
+      }
+      var data = {};
+      data['imgPath'] = imgUrl;
+      $(this).serializeArray().forEach(function(item) {
+        data[item.name] = item.value;
+      });
+      data['userId'] = localStorage.uid;
+      data['dateTime'] = new Date();
+      $.ajax({
+        type: "POST",
+        url: 'http://localhost:2403/submissions',
+        data: data,
+        dataType: 'json',
+        success: function(data) {
+          if (data) {
+            message = 'Post added successfully.';
+            myFunction(4800);
+            $("#submissionModal").modal('hide');
+            $("#eventsGallery").empty();
+            onLoad1();
+          }
+        }.bind(this),
+        error: function(error) {
+          Error(error);
+        }
+      });
+    });
+
+    $("#submissionModal").on('shown.bs.modal', function() {
+      $("#uid")[0].value = localStorage.uid;
+    });
+
+    function onLoad1() {
+      $.ajax({
+        type: "GET",
+        url: 'http://localhost:2403/submissions',
+        success: function(data) {
+          if (data) {
+            for (var row in data) {
+              $('#eventsGallery').append('<img class="eventImg" src="' + data[row].imgPath + '" alt="">');
+            }
+          }
+        }
+      });
+    }
+
+    onLoad1();
+  </script>
+
+</body>
+
+</html>
