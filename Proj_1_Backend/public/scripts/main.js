@@ -26,11 +26,13 @@
     if (localStorage.isLoggedin) {
       $('#loginbutton').hide();
       $('#signupbutton').hide();
+      $('#myfoodbutton').show();
       $('#logoutbutton').show();
       $('#addSubmission').show();
     } else {
       $('#loginbutton').show();
       $('#signupbutton').show();
+      $('#myfoodbutton').hide();
       $('#logoutbutton').hide();
       $('#addSubmission').hide();
     }

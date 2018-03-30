@@ -90,6 +90,15 @@ $("#submissionform").submit(function() {
     $("#submissionMessage").slideToggle();
     return false;
   }
+
+  var tagsRe = /^([A-z]{3,}\,?)+$/;
+  if (!tagsRe.test(document.getElementById('tags').value)){
+    $("#submissionMessage").html("Must have at least 1 tag composed only of letters. " +
+  "Separate tags with commas. Tags must be at least 3 characters.");
+    $("#submissionMessage").slideToggle();
+    return false;
+  }
+
   var data = {};
   data['imgPath'] = imgUrl;
 
@@ -134,11 +143,16 @@ function onLoad1() {
     url: 'http://localhost:2403/submissions',
     success: function(data) {
       if (data) {
-       var $container = $('<div></div>',{'class':'thumbnail-list'}); 
+       var $container = $('<div></div>',{'class':'thumbnail-list'});
         for (var row in data) {
-          var imagez = '<div class="thumbnail-item"> <img class="imgg" src="' + data[row].imgPath + '" alt="">';
-          var subscription = '<p class="imgName">'+data[row].name+'</p> <p class="imgDescription">'+data[row].description+'</p></div>';
-          $container.append(imagez + subscription);
+          var foodUser = data[row].userId;
+          var editButton = '';
+          if (foodUser == localStorage.uid){
+            editButton = '<p class="imgEdit">Edit</p>';
+          }
+          var imagez = '<div class="thumbnail-item" data-creator="' + foodUser + '"> <img class="imgg" src="' + data[row].imgPath + '" alt="">';
+          var subscription = '<p class="imgName">'+ data[row].name+'</p> <p class="imgDescription">'+data[row].description+'</p></div>';
+          $container.append(imagez + editButton + subscription);
           }
          $('#eventsGallery').append($container);
       }
