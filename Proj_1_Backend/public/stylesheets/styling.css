@@ -117,11 +117,33 @@ h1 {
 
 .eventImg {
   align-self: center;
-  margin: .5rem; 
+  margin: .5rem;
   width: 265px !important  height: 180px;
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
+
+
+
+/*set image scale*/
+/*.imgg{
+  min-width:200px;
+  max-width:200px;
+  min-height:200px;
+  max-height:200px;
+}
+
+.imgEdit {
+  
+}
+*/
+/*margin of paragraph = 0*/
+/*
+p {
+  margin: 0;
+ 
+}
+*/
 
 /*format image Name*/
 .imgName{
