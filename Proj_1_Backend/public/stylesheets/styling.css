@@ -123,8 +123,10 @@ h1 {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
+
+
 /*set image scale*/
-.imgg{
+/*.imgg{
   min-width:200px;
   max-width:200px;
   min-height:200px;
@@ -134,12 +136,14 @@ h1 {
 .imgEdit {
   
 }
-
+*/
 /*margin of paragraph = 0*/
+/*
 p {
   margin: 0;
-  /*word-break: break-all;*/
+ 
 }
+*/
 
 /*format image Name*/
 .imgName{
@@ -147,46 +151,39 @@ p {
   text-align: left;
   text-decoration: underline;
   text-transform: uppercase;
+  margin: 0;
 }
+
 /*format image description*/
 .imgDescription{
   color:black;
   text-align: left;
   text-transform:capitalize;
+  margin: 0;
 }
 
-
-/*thumbnail item*/
-.thumbnail-item{
-   display:inline-block;
-
-   min-width: 201px;
-   max-width: 201px;
-   min-height: 300px;
-   max-height: 300px;
-
-   background: white;
-
-  border:0.5px solid black;
-  margin: 20px;
-  /*word-break: break-all;*/
-  /*overflow: hidden;*/
+/*format thumbnail*/
+.thumbnail {
+    position: relative;
+    /*min-height:300px;
+    max-height:300px;*/
+    padding: 0px;
+    margin-bottom: 40px;
+    margin-top:30px;
+   /* overflow: auto;*/
 }
 
-/*thumbnail list*/
-.thumbnail-list{
-  flex: 0 1 auto;
-  display:flex;
-  justify-content:center;
-  list-style: none;
-  padding: 0;
-  white-space: nowrap;
-  flex-wrap:wrap;
-  overflow: auto;
-
+/*img size*/
+.thumbnail img {
+  margin-top:30px;
+  min-width:200px;
+  max-width:200px;
+  min-height:200px;
+  max-height:200px;
 }
 
-#eventsGallery .thumbnail-item:hover {
+/*hover*/
+#eventsGallery .thumbnail:hover {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.75);
 }
 
