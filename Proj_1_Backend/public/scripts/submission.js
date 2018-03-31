@@ -134,13 +134,14 @@ function onLoad1() {
     url: 'http://localhost:2403/submissions',
     success: function(data) {
       if (data) {
-       var $container = $('<div></div>',{'class':'thumbnail-list'}); 
         for (var row in data) {
-          var imagez = '<div class="thumbnail-item"> <img class="imgg" src="' + data[row].imgPath + '" alt="">';
-          var subscription = '<p class="imgName">'+data[row].name+'</p> <p class="imgDescription">'+data[row].description+'</p></div>';
-          $container.append(imagez + subscription);
+          var imagez = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
+          var name = '<div class="caption"><p class="imgName">'+data[row].name+'</p>' 
+          var subscription = '<p class="imgDescription">'+data[row].description+'</p>'
+          var buttonLike = '<p><a href="#" class="btn btn-info btn-xs" role="button">Like</a>'
+          var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button">Comment</a></p></div></div></div>';
+          $('#eventsGallery').append(imagez + name +subscription + buttonLike + buttonComment);
           }
-         $('#eventsGallery').append($container);
       }
     }
   });
