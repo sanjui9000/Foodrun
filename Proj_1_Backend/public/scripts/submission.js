@@ -92,9 +92,9 @@ $("#submissionform").submit(function() {
   }
 
   var tagsRe = /^([A-z]{3,}\,?)+$/;
-  if (!tagsRe.test(document.getElementById('tags').value)){
+  if (!tagsRe.test(document.getElementById('tags').value)) {
     $("#submissionMessage").html("Must have at least 1 tag composed only of letters. " +
-  "Separate tags with commas. Tags must be at least 3 characters.");
+      "Separate tags with commas. Tags must be at least 3 characters.");
     $("#submissionMessage").slideToggle();
     return false;
   }
@@ -143,21 +143,23 @@ function onLoad1() {
     url: 'http://localhost:2403/submissions',
     success: function(data) {
       if (data) {
+        var editButton = '';
 
         for (var row in data) {
           var imagez = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
-          var name = '<div class="caption"><p class="imgName">'+data[row].name+'</p>' 
-          var subscription = '<p class="imgDescription">'+data[row].description+'</p>'
+          var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p>'
+          var subscription = '<p class="imgDescription">' + data[row].description + '</p>'
           var buttonLike = '<p><a href="#" class="btn btn-info btn-xs" role="button">Like</a>'
           var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button">Comment</a></p></div></div></div>';
-          /*
+
           var foodUser = data[row].userId;
           var editButton = '';
-          if (foodUser == localStorage.uid){
-           editButton = '<p class="imgEdit">Edit</p>';
-           */ // Someone added the eddit button but it doesn't work so I but it as comment 
-          $('#eventsGallery').append(imagez + name +subscription + buttonLike + buttonComment);
+          if (foodUser == localStorage.uid) {
+            editButton = '<p class="imgEdit">Edit</p>';
+
+            $('#eventsGallery').append(imagez + name + editButton + subscription + buttonLike + buttonComment);
           }
+        }
       }
     }
   });
