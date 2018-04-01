@@ -128,8 +128,17 @@ h1 {
 .imgName{
   text-align: left;
   text-decoration: none;
-  margin: 0;
-  font-size:1.3em;
+  font-size:1.10em;
+  float:left;
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.likeComment {
+  float:right;
 }
 
 /*format image description*/
@@ -148,6 +157,7 @@ h1 {
     padding: 0px;
     margin:5px auto;
     width:270px;
+    height:243px;
    /* overflow: auto;*/
 }
 
@@ -157,7 +167,6 @@ h1 {
   height:200px;
   margin-left: 0px;
   margin-right:0px;
-
 }
 
 /*hover*/

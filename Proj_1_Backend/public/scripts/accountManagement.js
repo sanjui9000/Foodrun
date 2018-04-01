@@ -43,10 +43,9 @@
         if (data) {
           for (var row in data) {
             var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
-            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p>'
-            // var subscription = '<p class="imgDescription">'+data[row].description+'</p>'
-            // var buttonLike = '<p><a href="#" class="btn btn-info btn-xs" role="button">Like</a>'
-            // var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button">Comment</a></p></div></div></div>';
+            var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+            var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment + '</p></div>';
             $('#eventsGallery').append(images + name);
           }
         }

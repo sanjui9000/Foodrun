@@ -145,7 +145,7 @@
 
           var tagsRe = /^([A-z]{3,}\,?)+$/;
           if (!tagsRe.test(document.getElementById('tags').value)) {
-            var message = "Must have at least 1 tag composed only of letters. " + "Separate tags with commas. Tags must be at least 3 characters.";
+            var message = "Must have at least 1 tag. " + "Tags must be at least 3 characters with no spaces.";
             var snack = new SnackBar(message);
             snack.displayMessage(4800);
             return false;

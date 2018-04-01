@@ -27,13 +27,11 @@ var searchReturn = function(que) {
           //if match in the name, append image to gallery and continue
           if (lowerDataName.includes(lowerQuery)) {
             var foodUser = data[row].userId;
-            var editButton = '';
-            if (localStorage.uid && foodUser == localStorage.uid){
-              editButton = '<p class="imgEdit">Edit</p>';
-            }
-            var imagez = '<div class="thumbnail-item" data-creator="' + foodUser + '"> <img class="imgg" src="' + data[row].imgPath + '" alt="">';
-            var subscription = '<p class="imgName">'+data[row].name+'</p> <p class="imgDescription">'+data[row].description+'</p></div>';
-            $container.append(imagez + editButton + subscription);
+            var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
+            var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+            var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment + '</p></div>';
+            $container.append(images + name);
             continue;
           }
 
@@ -42,13 +40,11 @@ var searchReturn = function(que) {
             var lowerTagName = data[row].tags[tag].toLowerCase();
             if (lowerTagName.includes(lowerQuery)) {
               var foodUser = data[row].userId;
-              var editButton = '';
-              if (localStorage.uid && foodUser == localStorage.uid){
-                editButton = '<p class="imgEdit">Edit</p>';
-              }
-              var imagez = '<div class="thumbnail-item" data-creator="' + foodUser + '"> <img class="imgg" src="' + data[row].imgPath + '" alt="">';
-              var subscription = '<p class="imgName">'+data[row].name+'</p> <p class="imgDescription">'+data[row].description+'</p></div>';
-              $container.append(imagez + editButton + subscription);
+              var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
+              var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+              var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+              var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment + '</p></div>';
+              $container.append(images + name);
               break;
             }
           }

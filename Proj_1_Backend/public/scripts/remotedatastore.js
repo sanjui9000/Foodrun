@@ -21,6 +21,7 @@
       data: data,
       dataType: 'json',
       success: function() {
+        $('#signupModal').modal('hide');
         var message = 'You have signed up successfully. Please login to access core application features.';
         var snack = new SnackBar(message);
         snack.displayMessage(4800);
