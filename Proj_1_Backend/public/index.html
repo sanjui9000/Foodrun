@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>FoodRun</title>
+  <title href="index.html">FoodRun</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./stylesheets/styling.css">
 </head>
@@ -17,7 +17,7 @@
       <h1 class="logo"><a href="#">FoodRun</a></h1>
       <ul class="nav nav-right">
         <li class="active">
-          <a href="#">Home</a>
+          <a href="index.html">Home</a>
         </li>
         <li>
           <a href="#">About</a>
@@ -31,7 +31,7 @@
         <li id="loginbutton" data-target="#loginModal" data-toggle="modal">
           <a href="#">Login</a>
         </li>
-        <li id="logoutbutton">
+        <li id="logoutbutton" data-logout="logout">
           <a href="#">Logout</a>
         </li>
         <li id="addSubmission" data-target="#submissionModal" data-toggle="modal">
@@ -159,7 +159,6 @@
         <form id="submissionform" data-submission="form">
           <div class="modal-body">
 
-
             <div class="alert alert-danger" id="submissionMessage"></div>
 
             <div class="col-lg-6">
@@ -213,15 +212,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="scripts/accountManagement.js" charset="utf-8"></script>
+  <script src="scripts/snackbar.js" charset="utf-8"></script>
   <script src="scripts/formhandler.js" charset="utf-8"></script>
   <script src="scripts/remotedatastore.js" charset="utf-8"></script>
   <script src="scripts/main.js" charset="utf-8"></script>
-
-  <script src="scripts/submission.js" charset="utf-8"></script>
   <script src="scripts/search.js" charset="utf-8"></script>
 
-  <script type="text/javascript">
-  </script>
 
 </body>
 

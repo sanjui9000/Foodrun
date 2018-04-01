@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 (function(window) {
   'use strict';
   var App = window.App || {};
   var $ = window.jQuery;
+  var SnackBar = App.SnackBar;
 
   function RemoteDataStore(url) {
     if (!url) {
@@ -18,7 +21,9 @@
       data: data,
       dataType: 'json',
       success: function() {
-        console.log('Data added successfully.');
+        var message = 'You have signed up successfully. Please login to access core application features.';
+        var snack = new SnackBar(message);
+        snack.displayMessage(4800);
       },
       error: function(error) {
         Error(error);
@@ -26,6 +31,7 @@
     });
   };
 
+  // Check if user is autheticated
   RemoteDataStore.prototype.authenticate = function(data) {
     $.ajax({
       url: this.serverUrl + 'users/login',
@@ -40,14 +46,20 @@
         $('#signupbutton').hide();
         $('#logoutbutton').show();
         $('#addSubmission').show();
+        $('#myfoodbutton').show();
+        var message = 'You have logged in successfully.';
+        var snack = new SnackBar(message);
+        snack.displayMessage(4800);
       },
       error: function(error) {
-        $('#loginmessage').html('Please enter a valid username/password combination.');
-        $('#loginmessage').slideToggle();
+        var message = 'Could not log you in. Please check your credentials.';
+        var snack = new SnackBar(message);
+        snack.displayMessage(4800);
       }
     });
   };
 
+  // Get current user from local storage if set
   RemoteDataStore.prototype.getCurrentUser = function() {
     var currUid = localStorage.uid;
     if (!currUid) {

@@ -118,40 +118,18 @@ h1 {
 .eventImg {
   align-self: center;
   margin: .5rem;
-  width: 265px !important  height: 180px;
+  width: 265px !important;
+  height: 180px;
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-
-
-/*set image scale*/
-/*.imgg{
-  min-width:200px;
-  max-width:200px;
-  min-height:200px;
-  max-height:200px;
-}
-
-.imgEdit {
-  
-}
-*/
-/*margin of paragraph = 0*/
-/*
-p {
-  margin: 0;
- 
-}
-*/
-
 /*format image Name*/
 .imgName{
-  color:blue;
   text-align: left;
-  text-decoration: underline;
-  text-transform: uppercase;
+  text-decoration: none;
   margin: 0;
+  font-size:1.3em;
 }
 
 /*format image description*/
@@ -168,18 +146,18 @@ p {
     /*min-height:300px;
     max-height:300px;*/
     padding: 0px;
-    margin-bottom: 40px;
-    margin-top:30px;
+    margin:5px auto;
+    width:270px;
    /* overflow: auto;*/
 }
 
 /*img size*/
 .thumbnail img {
-  margin-top:30px;
-  min-width:200px;
-  max-width:200px;
-  min-height:200px;
-  max-height:200px;
+  width:270px;
+  height:200px;
+  margin-left: 0px;
+  margin-right:0px;
+
 }
 
 /*hover*/
@@ -212,6 +190,10 @@ p {
 /*
 * Common Form elements related
 */
+
+.col-md-3 {
+  padding:0px;
+}
 
 input.form-control {
   border-radius: 0px;
