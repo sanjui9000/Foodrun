@@ -43,9 +43,17 @@
         if (data) {
           for (var row in data) {
             var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
-            var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
-            var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
-            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment + '</p></div>';
+            var buttonLike = ''
+            var buttonComment = '';
+            var buttonEdit = '';
+            if (localStorage.uid){
+              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+              buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
+              if (localStorage.uid == data[row].userId){
+                buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+              }
+            }
+            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</p></div>';
             $('#eventsGallery').append(images + name);
           }
         }
