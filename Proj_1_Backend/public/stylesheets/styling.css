@@ -157,6 +157,8 @@ h1 {
     position: relative;
     padding: 0px;
     margin:5px auto;
+    max-width:270px;
+    min-width:270px;
 }
 
 /*img size*/
@@ -589,6 +591,7 @@ textarea {
 
 #lk, #ck, #lk1, #ck1 {
   padding-left:5px;
+  display:none;
 }
 
 #cls {

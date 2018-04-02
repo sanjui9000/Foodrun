@@ -259,7 +259,10 @@
           $(this).serializeArray().forEach(function(item) {
             data[item.name] = item.value;
           });
-
+          // console.log(data);
+          data['name'] = data['name1'];
+          // data['imgPath'] = data['imgPath1'];
+          data['description'] = data['description1'];
           data['tags'] = document.getElementById('tags1').value.split(",");
           data['userId'] = localStorage.uid;
           data['dateTime'] = new Date();
