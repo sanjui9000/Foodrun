@@ -73,30 +73,32 @@ var searchReturn = function(que) {
 
 //Handle clicking "search"
 $('#searchButton').on('click', function() {
+  var App = window.App || {};
+  var SnackBar = App.SnackBar;
   var searchInput = document.getElementById("searchItems");
   var searchQuery = searchInput.value;
 
   var re = /^([A-z]{3,}\s?)*$/;
   if (!re.test(searchQuery)){
-    searchInput.setCustomValidity("Search term must be at least 3 letters.");
-  } else {
-    searchInput.setCustomValidity("");
-    searchReturn(searchInput.value.toLowerCase());
+    var message = "Search term must be at least 3 letters (no numbers, spaces or special characters).";
+    var snack = new SnackBar(message);
+    snack.displayMessage(4800);
   }
 });
 
 //Handle enter key
 $('#searchItems').keypress(function (e) {
   if (e.which == 13) {
+    var App = window.App || {};
+    var SnackBar = App.SnackBar;
     var searchInput = document.getElementById("searchItems");
     var searchQuery = searchInput.value;
 
     var re = /^([A-z]{3,}\s?)*$/;
     if (!re.test(searchQuery)){
-      searchInput.setCustomValidity("Search term must be at least 3 letters.");
-    } else {
-      searchInput.setCustomValidity("");
-      searchReturn(searchInput.value.toLowerCase());
+      var message = "Search term must be at least 3 letters (no numbers, spaces or special characters).";
+      var snack = new SnackBar(message);
+      snack.displayMessage(4800);
     }
     return false;
   }
