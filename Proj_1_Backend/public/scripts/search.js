@@ -108,7 +108,6 @@ var searchReturn = function(que) {
 
 //Handle clicking "search"
 $('#searchButton').on('click', function() {
-  localStorage.searchTerm = '';
   var App = window.App || {};
   var SnackBar = App.SnackBar;
   var searchInput = document.getElementById("searchItems");
@@ -120,16 +119,14 @@ $('#searchButton').on('click', function() {
     var snack = new SnackBar(message);
     snack.displayMessage(4800);
   } else {
-    localStorage.searchTerm = searchInput.value.toLowerCase();
     searchInput.setCustomValidity("");
-    searchReturn(localStorage.searchTerm);
+    searchReturn(searchInput.value.toLowerCase());
   }
 });
 
 //Handle enter key
 $('#searchItems').keypress(function (e) {
   if (e.which == 13) {
-    localStorage.searchTerm = '';
     var App = window.App || {};
     var SnackBar = App.SnackBar;
     var searchInput = document.getElementById("searchItems");
@@ -141,9 +138,8 @@ $('#searchItems').keypress(function (e) {
       var snack = new SnackBar(message);
       snack.displayMessage(4800);
     } else {
-      localStorage.searchTerm = searchInput.value.toLowerCase();
       searchInput.setCustomValidity("");
-      searchReturn(localStorage.searchTerm);
+      searchReturn(searchInput.value.toLowerCase());
     }
     return false;
   }
@@ -151,6 +147,5 @@ $('#searchItems').keypress(function (e) {
 
 //Handle clicking "My Food"
 $('#myfoodbutton').on('click', function() {
-  localStorage.searchTerm = '';
   searchReturn(localStorage.uid.toLowerCase());
 });

@@ -371,7 +371,7 @@ $("#commentModal").on('shown.bs.modal', function() {
 });
 
 $('#commentModal').on('hide.bs.modal', function() {
-  searchReturn(localStorage.searchTerm);
+  location.reload();
 });
 
 $(document).click(function(event) {
