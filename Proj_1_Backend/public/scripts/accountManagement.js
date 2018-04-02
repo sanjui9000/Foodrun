@@ -16,6 +16,7 @@
           $('#myfoodbutton').hide();
           $('#logoutbutton').hide();
           $('#addSubmission').hide();
+          location.reload();
         });
       };
     }
@@ -42,7 +43,7 @@
       success: function(data) {
         if (data) {
           for (var row in data) {
-            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
+            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
             var buttonLike = ''
             var buttonComment = '';
             var buttonEdit = '';
@@ -50,7 +51,7 @@
               buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
               buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
               if (localStorage.uid == data[row].userId){
-                buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+                buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
             }
             var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';

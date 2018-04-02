@@ -1,20 +1,20 @@
 {
 	"type": "Collection",
 	"properties": {
-		"submissionId": {
-			"name": "submissionId",
+		"commentId": {
+			"name": "commentId",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
-			"id": "submissionId",
+			"id": "commentId",
 			"order": 0
 		},
-		"userId": {
-			"name": "userId",
+		"userName": {
+			"name": "userName",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
-			"id": "userId",
+			"id": "userName",
 			"order": 1
 		},
 		"content": {

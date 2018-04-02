@@ -48,6 +48,7 @@
         $('#logoutbutton').show();
         $('#addSubmission').show();
         $('#myfoodbutton').show();
+        location.reload();
         var message = 'You have logged in successfully.';
         var snack = new SnackBar(message);
         snack.displayMessage(4800);

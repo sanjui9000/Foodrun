@@ -159,8 +159,6 @@
         <form id="submissionform" data-submission="form">
           <div class="modal-body">
 
-            <div class="alert alert-danger" id="submissionMessage"></div>
-
             <div class="col-lg-6">
               <div class="avatar-upload">
                 <div class="avatar-edit">
@@ -208,11 +206,121 @@
 
   <!-- >
 
+  <! Comment modal-->
+  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-sm-12">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cls"><span aria-hidden="true">&times;</span></button>
+          </div>
+        </div>
+        <div class="modal-body" id="bdy">
+          <div class="row">
+          <div class="col-sm-8 align-items-center" id="div1">
+          </div>
+
+          <div class="col-sm-4" id="div2">
+            <div id="div3">
+            </div>
+            <div id="div4">
+            </div>
+            <br/>
+            <!--<img id="like" src="./assets/2.png" /><img id="comments" src="./assets/comments.png" hspace="20" /><h4 id="commentCount"></h4>-->
+            <div class="row likeCommentRow">
+              <div id="div7"></div><span id="likeCount" ></span><img id="comments" src="./assets/comments.png" hspace="20" /><span id="commentCount"></span>
+            </div>
+            <br/>
+            <div class="content">
+              <div class="header">
+                Comments
+              </div>
+              <div class="comments">
+                <div class="editor">
+
+                  <div id="commentBox">
+                  </div>
+                  <div id="list-comments">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- >
+
+  <!--Edit submission form-->
+
+  <div class="modal fade" id="editSubmissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel3">Edit Post:</h4>
+        </div>
+        <form id="editSubmissionform" data-editsubmission="form">
+          <div class="modal-body">
+
+            <div class="col-lg-6">
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type="file" name="imageUpload1" id="imageUpload1" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload1"></label>
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview1" style="background-image: url(./assets/Blank_Pic.png);">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 detsForm">
+              <div class="form-group" style="display:none;">
+                <label for="uid1">Uid:</label>
+                <input disabled class="form-control" required type="text" id="uid1" name="uid1">
+              </div>
+
+              <div class="form-group">
+                <label for="name1">Name:</label>
+                <input required class="form-control" type="text" id="name1" name="name1" placeholder="Name">
+              </div>
+
+              <div class="form-group">
+                <label for="tags1">Tags:</label>
+                <input required class="form-control" type="text" id="tags1" name="tags1" placeholder="tagA,tagB,tagC">
+              </div>
+
+              <div class="form-group">
+                <label for="description1">Description:</label>
+                <textarea required rows="5" class="form-control" name="description1" id="description1" placeholder="Enter some description about your submission..!"></textarea>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <input class="btn btn-success" name="submission1" id="submission1" type="submit" value="Submit">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- >
+
   <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="scripts/editFood.js" charset="utf-8"></script>
   <script src="scripts/accountManagement.js" charset="utf-8"></script>
+  <script src="scripts/postHandling.js" charset="utf-8"></script>
   <script src="scripts/snackbar.js" charset="utf-8"></script>
   <script src="scripts/formhandler.js" charset="utf-8"></script>
   <script src="scripts/remotedatastore.js" charset="utf-8"></script>

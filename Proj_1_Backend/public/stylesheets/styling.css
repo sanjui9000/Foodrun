@@ -115,15 +115,6 @@ h1 {
   overflow-y: auto;
 }
 
-.eventImg {
-  align-self: center;
-  margin: .5rem;
-  width: 265px !important;
-  height: 180px;
-  border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-}
-
 /*format image Name*/
 .imgName{
   text-align: left;
@@ -195,6 +186,10 @@ h1 {
 }
 
 #submissionModal .modal-body {
+  height: 340px;
+}
+
+#editSubmissionModal .modal-body {
   height: 340px;
 }
 
@@ -418,3 +413,174 @@ textarea {
 /*
 * snackbar end
 */
+
+/*
+* comment related
+*/
+
+#eventImg1 {
+  width:100%;
+  max-height:600px;
+}
+
+.row {
+  margin-left:0px;
+  margin-right:0px;
+}
+
+#like{
+  width: 37px;
+  height:30px;
+  display:inline-block;
+}
+
+#commentCount {
+  width: 37px;
+  height:30px;
+  display:inline-block;
+}
+
+#div7{
+  display:inline-block;
+  margin-right:15px;
+}
+
+#div3 {
+  font-weight:bold;
+  font-size:1.5em;
+}
+
+#div4 {
+  font-size:1.15em;
+  height:240px;
+  overflow-y: auto;
+  margin-bottom:0px;
+  padding-right:3px;
+}
+
+#newLike {
+  width: 37px;
+  height:30px;
+  display:inline-block;
+}
+
+#comments {
+  width:35px;
+  height:30px;
+  display:inline-block;
+}
+
+.comments{
+  margin: auto;
+}
+
+.insert-text{
+  position: relative;
+}
+
+.insert-text .loading{
+  position: absolute;
+  bottom: -25px;
+  display: none;
+}
+
+.insert-text .total-comment{
+  position: absolute;
+  bottom: -25px;
+  right: 0px;
+}
+
+.insert-text .total-comment:before{
+  content: "Total comment: ";
+  font-weight: bold;
+}
+
+.list-comments{
+  margin-top:30px;
+  padding-top:10px;
+  background: #f0f0f0;
+  overflow-y:auto;
+}
+
+.header {
+  text-align: center;
+  padding-top:10px;
+  font-weight:bold;
+  padding-bottom:10px;
+  border-bottom:1px solid grey;
+}
+
+.eachComment {
+  padding-top:10px;
+  margin:10 auto;
+}
+
+#data1{
+  padding-left: 5px;
+  padding-right: 5px;
+  border-color: white;
+  margin-left:10px;
+  border-radius: 20px;
+}
+
+.editor{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.content {
+  overflow-y: auto;
+  height:245px;
+  border: 1px solid grey;
+}
+
+.editor-content{
+  width:92%;
+  outline: none;
+  min-height: 30px;
+  background: #f9f9f9;
+  margin: 10px 10px 10px 10px;
+  padding:5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+
+}
+
+.editor-content:focus{
+  background: #fff;
+}
+
+#commentModal .modal-dialog{
+  width:70%;
+}
+
+.modal-backdrop{
+    opacity:0.9 !important;
+}
+
+.centeImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#commentModal .modal-body {
+  padding-top:25px;
+}
+
+.padClass {
+  padding-bottom:20px;
+}
+
+#bdy {
+  padding-bottom:30px;
+}
+
+#cls {
+  font-size:2em;
+}
+
+#div1 {
+  height:auto;
+}

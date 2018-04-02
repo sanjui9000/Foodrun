@@ -1,4 +1,5 @@
-1. Error from login is thrown no matter what. Need to fix it.
-2. Handle login error based on type of error.
-4. Clean up code.
-5. Messages should be displayed in same way... Some places bootstrap alerts are there, some places toasts are there. Fix those.
+1. Images on events gallery are distorted when console is activated.
+5. Fix image width & height on display modal.
+6. Likes and comment remove on my food page. Leave only edit if possible ( Do this only if you feel it makes sense ). - Anthony
+7. Likes and comment count on events gallery div. - Anthony / Nil
+8. Like display bug. - Nil

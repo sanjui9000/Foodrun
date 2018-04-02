@@ -34,7 +34,7 @@ var searchReturn = function(que) {
               buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
               buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
               if (localStorage.uid == data[row].userId){
-                buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+                buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
             }
             var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
@@ -54,7 +54,7 @@ var searchReturn = function(que) {
                 buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
                 buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
                 if (localStorage.uid == data[row].userId){
-                  buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+                  buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
                 }
               }
               var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
