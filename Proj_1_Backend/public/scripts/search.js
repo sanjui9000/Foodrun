@@ -80,9 +80,12 @@ $('#searchButton').on('click', function() {
 
   var re = /^([A-z]{3,}\s?)*$/;
   if (!re.test(searchQuery)){
-    var message = "Search term must be at least 3 letters (no numbers, spaces or special characters).";
+    var message = "Search term must be at least 3 letters.";
     var snack = new SnackBar(message);
     snack.displayMessage(4800);
+  } else {
+    searchInput.setCustomValidity("");
+    searchReturn(searchInput.value.toLowerCase());
   }
 });
 
@@ -96,9 +99,12 @@ $('#searchItems').keypress(function (e) {
 
     var re = /^([A-z]{3,}\s?)*$/;
     if (!re.test(searchQuery)){
-      var message = "Search term must be at least 3 letters (no numbers, spaces or special characters).";
+      var message = "Search term must be at least 3 letters.";
       var snack = new SnackBar(message);
       snack.displayMessage(4800);
+    } else {
+      searchInput.setCustomValidity("");
+      searchReturn(searchInput.value.toLowerCase());
     }
     return false;
   }
