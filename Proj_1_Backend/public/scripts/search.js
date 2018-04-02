@@ -1,6 +1,9 @@
 /* eslint-disable */
 
 var searchReturn = function(que) {
+  if (!que){
+    que = '';
+  }
   var searchQuery = que;
 
   $.ajax({
@@ -26,7 +29,7 @@ var searchReturn = function(que) {
 
           //if match in the name, append image to gallery and continue
           if (lowerDataName.includes(lowerQuery)) {
-            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
+            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
             var buttonLike = ''
             var buttonComment = '';
             var reqName = data[row].name;
@@ -81,7 +84,7 @@ var searchReturn = function(que) {
             //if match in tags, append image to gallery and break (to avoid duplicates for dupe tags)
             var lowerTagName = data[row].tags[tag].toLowerCase();
             if (lowerTagName.includes(lowerQuery)) {
-              var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
+              var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
               var buttonLike = ''
               var buttonComment = '';
               var buttonEdit = '';
@@ -108,7 +111,6 @@ var searchReturn = function(que) {
 
 //Handle clicking "search"
 $('#searchButton').on('click', function() {
-  localStorage.searchTerm = '';
   var App = window.App || {};
   var SnackBar = App.SnackBar;
   var searchInput = document.getElementById("searchItems");
@@ -116,20 +118,18 @@ $('#searchButton').on('click', function() {
 
   var re = /^([A-z]{3,}\s?)*$/;
   if (!re.test(searchQuery)){
-    var message = "Search term must be at least 3 letters.";
+    var message = "Search term must be at least 3 letters. No numbers or special characters.";
     var snack = new SnackBar(message);
     snack.displayMessage(4800);
   } else {
-    localStorage.searchTerm = searchInput.value.toLowerCase();
     searchInput.setCustomValidity("");
-    searchReturn(localStorage.searchTerm);
+    searchReturn(searchInput.value.toLowerCase());
   }
 });
 
 //Handle enter key
 $('#searchItems').keypress(function (e) {
   if (e.which == 13) {
-    localStorage.searchTerm = '';
     var App = window.App || {};
     var SnackBar = App.SnackBar;
     var searchInput = document.getElementById("searchItems");
@@ -137,13 +137,12 @@ $('#searchItems').keypress(function (e) {
 
     var re = /^([A-z]{3,}\s?)*$/;
     if (!re.test(searchQuery)){
-      var message = "Search term must be at least 3 letters.";
+      var message = "Search term must be at least 3 letters. No numbers or special characters.";
       var snack = new SnackBar(message);
       snack.displayMessage(4800);
     } else {
-      localStorage.searchTerm = searchInput.value.toLowerCase();
       searchInput.setCustomValidity("");
-      searchReturn(localStorage.searchTerm);
+      searchReturn(searchInput.value.toLowerCase());
     }
     return false;
   }
@@ -151,6 +150,5 @@ $('#searchItems').keypress(function (e) {
 
 //Handle clicking "My Food"
 $('#myfoodbutton').on('click', function() {
-  localStorage.searchTerm = '';
   searchReturn(localStorage.uid.toLowerCase());
 });

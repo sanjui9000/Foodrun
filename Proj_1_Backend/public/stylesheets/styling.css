@@ -419,7 +419,8 @@ textarea {
 */
 
 #eventImg1 {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.75);
+  width:100%;
+  max-height:600px;
 }
 
 .row {
@@ -450,8 +451,13 @@ textarea {
 }
 
 #div4 {
-  font-size:1.15em;
+<<<<<<< HEAD
+  font-size:0.9em;
   max-height:240px;
+=======
+  font-size:1.15em;
+  height:240px;
+>>>>>>> f87d6a97faaf5901df1bd4a74aa0ccab908587d3
   overflow-y: auto;
   margin-bottom:0px;
   padding-right:3px;
@@ -529,7 +535,7 @@ textarea {
 
 .content {
   overflow-y: auto;
-  min-height:245px;
+  height:245px;
   border: 1px solid grey;
 }
 
@@ -550,7 +556,8 @@ textarea {
 }
 
 #commentModal .modal-dialog{
-  width:70%;
+  width:85%;
+  min-height:800px;
 }
 
 .modal-backdrop{
@@ -559,16 +566,9 @@ textarea {
 
 .centeImage {
     display: block;
-    margin:auto;
-    max-height:90%;
-    max-width:90%;
-    width:auto;
-    height:auto;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 #commentModal .modal-body {
@@ -601,7 +601,11 @@ textarea {
 }
 
 #div1 {
+<<<<<<< HEAD
   position:relative;
-  min-height:550px;
+  min-height:700px;
   max-height:90%;
+=======
+  height:auto;
+>>>>>>> f87d6a97faaf5901df1bd4a74aa0ccab908587d3
 }
