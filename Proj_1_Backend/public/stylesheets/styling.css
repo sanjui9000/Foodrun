@@ -149,24 +149,30 @@ h1 {
   margin: 0;
 }
 
+.foodImg {
+  width:270px;
+  height:180px;
+  overflow:hidden;
+}
+
+.foodCaption {
+  color:#333;
+  padding:3px;
+  overflow:hidden;
+}
+
 /*format thumbnail*/
 .thumbnail {
     position: relative;
-    /*min-height:300px;
-    max-height:300px;*/
     padding: 0px;
     margin:5px auto;
-    width:270px;
-    height:243px;
-   /* overflow: auto;*/
 }
 
 /*img size*/
 .thumbnail img {
+  height:180px;
   width:270px;
-  height:200px;
-  margin-left: 0px;
-  margin-right:0px;
+  object-fit:cover;
 }
 
 /*hover*/

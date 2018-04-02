@@ -26,20 +26,19 @@ var searchReturn = function(que) {
 
           //if match in the name, append image to gallery and continue
           if (lowerDataName.includes(lowerQuery)) {
-            var foodUser = data[row].userId;
-            var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
+            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
             var buttonLike = ''
             var buttonComment = '';
             var buttonEdit = '';
             if (localStorage.uid){
-              var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
-              var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
-              if (localStorage.uid == foodUser){
-                var buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+              buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
+              if (localStorage.uid == data[row].userId){
+                buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
             }
-            var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</p></div>';
-            $container.append(images + name);
+            var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
+            $('#eventsGallery').append(images + name);
             continue;
           }
 
@@ -47,20 +46,19 @@ var searchReturn = function(que) {
             //if match in tags, append image to gallery and break (to avoid duplicates for dupe tags)
             var lowerTagName = data[row].tags[tag].toLowerCase();
             if (lowerTagName.includes(lowerQuery)) {
-              var foodUser = data[row].userId;
-              var images = '<div class="col-md-3"><div class="thumbnail"> <img src="' + data[row].imgPath + '" alt="">';
+              var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
               var buttonLike = ''
               var buttonComment = '';
               var buttonEdit = '';
               if (localStorage.uid){
-                var buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
-                var buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
-                if (localStorage.uid == foodUser){
-                  var buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+                buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+                buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
+                if (localStorage.uid == data[row].userId){
+                  buttonEdit = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
                 }
               }
-              var name = '<div class="caption"><p class="imgName">' + data[row].name + '</p><p class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</p></div>';
-              $container.append(images + name);
+              var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
+              $('#eventsGallery').append(images + name);
               break;
             }
           }
