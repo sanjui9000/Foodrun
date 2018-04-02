@@ -419,8 +419,7 @@ textarea {
 */
 
 #eventImg1 {
-  width:100%;
-  max-height:600px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.75);
 }
 
 .row {
@@ -452,7 +451,7 @@ textarea {
 
 #div4 {
   font-size:1.15em;
-  height:240px;
+  max-height:240px;
   overflow-y: auto;
   margin-bottom:0px;
   padding-right:3px;
@@ -530,7 +529,7 @@ textarea {
 
 .content {
   overflow-y: auto;
-  height:245px;
+  min-height:245px;
   border: 1px solid grey;
 }
 
@@ -560,9 +559,16 @@ textarea {
 
 .centeImage {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+    margin:auto;
+    max-height:90%;
+    max-width:90%;
+    width:auto;
+    height:auto;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 #commentModal .modal-body {
@@ -595,5 +601,7 @@ textarea {
 }
 
 #div1 {
-  height:auto;
+  position:relative;
+  min-height:550px;
+  max-height:90%;
 }
