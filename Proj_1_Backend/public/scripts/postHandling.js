@@ -44,6 +44,9 @@ $(document).on('click', '.eventImg', function() {
             //To display image description
             $('#div4').append(imgDescription);
 
+            var a = '<img id="like" src="./assets/2.png" />'
+            $('#div7').append(a);
+
             //To display like button.
             $.ajax({
               type: "GET",
@@ -51,21 +54,12 @@ $(document).on('click', '.eventImg', function() {
               success: function(data) {
                 if (data.length > 0) {
                   for (var row in data) {
-
-                    if ((data[row].submissionId == $("#name11").text()) && (data[row].userId == localStorage.uid)) {
+                      if ((data[row].submissionId == $('#name11').text()) && (data[row].userId == localStorage.uid)) {
                       $('#div7').empty();
                       var a = '<img id="newLike" data-id="' + data[row].id + '" src="./assets/1.png" />'
                       $('#div7').append(a);
-                    } else {
-                      $('#div7').empty();
-                      var a = '<img id="like" src="./assets/2.png" />'
-                      $('#div7').append(a);
                     }
                   }
-                } else {
-                  $('#div7').empty();
-                  var a = '<img id="like" src="./assets/2.png" />'
-                  $('#div7').append(a);
                 }
               }
             });
@@ -93,7 +87,10 @@ $(document).on('click', '.eventImg', function() {
                   }
                   //To display total number of comments.
                   $('#commentCount').text(a);
+                } else {
+                  $('#commentCount').text(a);
                 }
+
               }
             });
           }
@@ -330,6 +327,8 @@ $(document).on('click', '#cls1', function() {
                             }
                             //To display total number of comments.
                             $('#commentCount').text(a);
+                          } else {
+                            $('#commentCount').text(a);
                           }
                         }
                       });
@@ -369,6 +368,10 @@ $("#commentModal").click(function() {
 $("#commentModal").on('shown.bs.modal', function() {
   $('#div2').css('height', $('#div1').height());
   $('.content').css('height', $('#div2').height() -  $('#div3').height() - $('#div4').height() - $('.likeCommentRow').height() - 48);
+});
+
+$('#commentModal').on('hide.bs.modal', function() {
+  location.reload();
 });
 
 $(document).click(function(event) {

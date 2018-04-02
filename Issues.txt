@@ -1,5 +1,1 @@
-1. Images on events gallery are distorted when console is activated.
-5. Fix image width & height on display modal.
 6. Likes and comment remove on my food page. Leave only edit if possible ( Do this only if you feel it makes sense ). - Anthony
-7. Likes and comment count on events gallery div. - Anthony / Nil
-8. Like display bug. - Nil

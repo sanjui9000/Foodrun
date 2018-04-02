@@ -29,10 +29,45 @@ var searchReturn = function(que) {
             var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img src="' + data[row].imgPath + '" alt=""></div>';
             var buttonLike = ''
             var buttonComment = '';
+            var reqName = data[row].name;
+            $.ajax({
+              type: "GET",
+              url: 'http://localhost:2403/votes',
+              success: function(datas) {
+                var b = 0;
+                if (datas) {
+                  for (var row in datas) {
+                    if(datas[row].submissionId == reqName){
+                      b = b + 1;
+                    }
+                  }
+                  $('#lk1').text('');
+                  $('#lk1').text(b);
+                  // console.log(data[row].name);
+                }
+              }
+            });
+            $.ajax({
+              type: "GET",
+              url: 'http://localhost:2403/comments',
+              success: function(datas) {
+                var b = 0;
+                if (datas) {
+                  for (var row in datas) {
+                    if(datas[row].commentId == reqName){
+                      b = b + 1;
+                    }
+                  }
+                  $('#ck1').text('');
+                  $('#ck1').text(b);
+                  // console.log(data[row].name);
+                }
+              }
+            });
             var buttonEdit = '';
             if (localStorage.uid){
-              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
-              buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
+              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk1"></span></a>'
+              buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span id="ck1"></span></a>';
               if (localStorage.uid == data[row].userId){
                 buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }

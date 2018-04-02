@@ -21,11 +21,11 @@
       FormHandler.prototype.addSubmitHandler = function(ds) {
         this.$formElement.on("submit", function(event) {
           event.preventDefault();
-
           var data = {};
           $(this).serializeArray().forEach(function(item) {
             data[item.name] = item.value;
           });
+          data['username'] = data['username'].toLowerCase();
           this.reset();
           ds.add(data);
         });
@@ -88,7 +88,7 @@
             data[item.name] = item.value;
           });
           var data1 = {};
-          data1.username = data.loginemail1;
+          data1.username = data.loginemail1.toLowerCase();
           data1.password = data.loginpassword1;
           this.reset();
           ds.authenticate(data1);

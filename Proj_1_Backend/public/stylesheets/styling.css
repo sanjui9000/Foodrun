@@ -577,8 +577,21 @@ textarea {
   padding-bottom:30px;
 }
 
+#lk, #ck, #lk1, #ck1 {
+  padding-left:5px;
+}
+
 #cls {
   font-size:2em;
+}
+
+#cls1 {
+  background:transparent;
+  opacity:0;
+}
+
+#cls1:hover {
+  opacity:1;
 }
 
 #div1 {

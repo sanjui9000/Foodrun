@@ -48,8 +48,43 @@
             var buttonComment = '';
             var buttonEdit = '';
             if (localStorage.uid){
-              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
-              buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
+              buttonLike = '<a href="#" "data-name='+data[row].name+'" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk"></span></a>'
+              buttonComment = '<a href="#" "data-name='+data[row].name+'" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span id="ck"></span></a>';
+              var reqName = data[row].name;
+              $.ajax({
+                type: "GET",
+                url: 'http://localhost:2403/votes',
+                success: function(datas) {
+                  var b = 0;
+                  if (datas) {
+                    for (var row in datas) {
+                      if(datas[row].submissionId == reqName){
+                        b = b + 1;
+                      }
+                    }
+                    $('#lk').text('');
+                    $('#lk').text(b);
+                    // console.log(data[row].name);
+                  }
+                }
+              });
+              $.ajax({
+                type: "GET",
+                url: 'http://localhost:2403/comments',
+                success: function(datas) {
+                  var b = 0;
+                  if (datas) {
+                    for (var row in datas) {
+                      if(datas[row].commentId == reqName){
+                        b = b + 1;
+                      }
+                    }
+                    $('#ck').text('');
+                    $('#ck').text(b);
+                    // console.log(data[row].name);
+                  }
+                }
+              });
               if (localStorage.uid == data[row].userId){
                 buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
