@@ -2,7 +2,7 @@
 Project 1 - Front End Engineering
 
 ## Installation and Setup
-### Disclaimer
+### Important Note
 * These instructions were written with the intention of setting up and running a local copy of Foodrun. To set Foodrun up on a remote server,
 please substitute "localhost:2403" for the proper location and port of your server.
 
