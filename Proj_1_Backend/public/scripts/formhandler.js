@@ -90,6 +90,7 @@
           var data1 = {};
           data1.username = data.loginemail1.toLowerCase();
           data1.password = data.loginpassword1;
+          localStorage.setItem("username", $('#loginemail1').val());
           this.reset();
           ds.authenticate(data1);
         });

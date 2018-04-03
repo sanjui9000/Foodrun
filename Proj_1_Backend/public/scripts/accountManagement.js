@@ -62,7 +62,7 @@
                         b = b + 1;
                       }
                     }
-                    $('#lk').text('');
+                    //$('#lk').text('');
                     $('#lk').text(b);
                     // console.log(data[row].name);
                   }
@@ -79,8 +79,8 @@
                         b = b + 1;
                       }
                     }
-                    $('#ck').text('');
-                    $('#ck').text(b);
+                    //$('#lk').text('');
+                    $('#lk').text(b);
                     // console.log(data[row].name);
                   }
                 }

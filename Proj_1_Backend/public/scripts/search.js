@@ -111,6 +111,7 @@ var searchReturn = function(que) {
 
 //Handle clicking "search"
 $('#searchButton').on('click', function() {
+  localStorage.searchTerm = '';
   var App = window.App || {};
   var SnackBar = App.SnackBar;
   var searchInput = document.getElementById("searchItems");
@@ -122,14 +123,16 @@ $('#searchButton').on('click', function() {
     var snack = new SnackBar(message);
     snack.displayMessage(4800);
   } else {
+    localStorage.searchTerm = searchQuery.toLowerCase();
     searchInput.setCustomValidity("");
-    searchReturn(searchInput.value.toLowerCase());
+    searchReturn(localStorage.searchTerm);
   }
 });
 
 //Handle enter key
 $('#searchItems').keypress(function (e) {
   if (e.which == 13) {
+    localStorage.searchTerm = '';
     var App = window.App || {};
     var SnackBar = App.SnackBar;
     var searchInput = document.getElementById("searchItems");
@@ -141,8 +144,9 @@ $('#searchItems').keypress(function (e) {
       var snack = new SnackBar(message);
       snack.displayMessage(4800);
     } else {
+      localStorage.searchTerm = searchQuery.toLowerCase();
       searchInput.setCustomValidity("");
-      searchReturn(searchInput.value.toLowerCase());
+      searchReturn(localStorage.searchTerm);
     }
     return false;
   }

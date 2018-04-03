@@ -371,7 +371,10 @@ $("#commentModal").on('shown.bs.modal', function() {
 });
 
 $('#commentModal').on('hide.bs.modal', function() {
-  location.reload();
+  if (!localStorage.searchTerm){
+    localStorage.searchTerm = '';
+  }
+  searchReturn(localStorage.searchTerm);
 });
 
 $(document).click(function(event) {
