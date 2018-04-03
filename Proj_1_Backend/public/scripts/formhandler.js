@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 (function(window) {
   "use strict";
   var App = window.App || {};
@@ -106,7 +104,7 @@
 
           // Check type
           var acceptableTypes = ["image/jpeg", "image/png", "image/jpeg"];
-          var wrongType1 = ($.inArray(imageType1, acceptableTypes) == -1)
+          var wrongType1 = ($.inArray(imageType1, acceptableTypes) == -1);
           if (wrongType1) {
             var message = 'Only jpeg, png and jpeg images are accepted.';
             var snack = new SnackBar(message);
@@ -193,7 +191,7 @@
         });
       };
 
-    } else if(this.$formElement[0].id == "editSubmissionform") {
+    } else if (this.$formElement[0].id == "editSubmissionform") {
       FormHandler.prototype.addMainImageHandler1 = function(element) {
         this.$imageElement = element;
         this.$imageElement.on("change", function() {
@@ -203,7 +201,7 @@
 
           // Check type
           var acceptableTypes = ["image/jpeg", "image/png", "image/jpeg"];
-          var wrongType1 = ($.inArray(imageType1, acceptableTypes) == -1)
+          var wrongType1 = ($.inArray(imageType1, acceptableTypes) == -1);
           if (wrongType1) {
             var message = 'Only jpeg, png and jpeg images are accepted.';
             var snack = new SnackBar(message);

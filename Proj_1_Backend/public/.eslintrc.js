@@ -3,7 +3,6 @@ module.exports = {
     "node" : true,
     "browser": true
   },
-  "extends": "eslint:recommended",
   "rules": {
     "indent": [
       "error",
@@ -12,10 +11,6 @@ module.exports = {
     "linebreak-style": [
       "error",
       "windows"
-    ],
-    "quotes": [
-      "error",
-      "single"
     ],
     "semi": [
       "error",

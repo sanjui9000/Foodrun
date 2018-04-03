@@ -1,7 +1,5 @@
-/* eslint-disable */
-
 var searchReturn = function(que) {
-  if (!que){
+  if (!que) {
     que = '';
   }
   var searchQuery = que;
@@ -13,7 +11,9 @@ var searchReturn = function(que) {
       if (data) {
         //empty the gallery
         $('#eventsGallery').empty();
-        var $container = $('<div></div>',{'class':'thumbnail-list'});
+        var $container = $('<div></div>', {
+          'class': 'thumbnail-list'
+        });
         var lowerQuery = searchQuery.toLowerCase();
 
         for (var row in data) {
@@ -21,7 +21,7 @@ var searchReturn = function(que) {
 
           //if the query is the user's id in localStorage, use that as the term
           //else, use the submission name
-          if (localStorage.uid && localStorage.uid.toLowerCase() == lowerQuery){
+          if (localStorage.uid && localStorage.uid.toLowerCase() == lowerQuery) {
             lowerDataName = data[row].userId.toLowerCase();
           } else {
             lowerDataName = data[row].name.toLowerCase();
@@ -29,8 +29,8 @@ var searchReturn = function(que) {
 
           //if match in the name, append image to gallery and continue
           if (lowerDataName.includes(lowerQuery)) {
-            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
-            var buttonLike = ''
+            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="' + data[row].id + '" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
+            var buttonLike = '';
             var buttonComment = '';
             var reqName = data[row].name;
             $.ajax({
@@ -40,7 +40,7 @@ var searchReturn = function(que) {
                 var b = 0;
                 if (datas) {
                   for (var row in datas) {
-                    if(datas[row].submissionId == reqName){
+                    if (datas[row].submissionId == reqName) {
                       b = b + 1;
                     }
                   }
@@ -57,7 +57,7 @@ var searchReturn = function(que) {
                 var b = 0;
                 if (datas) {
                   for (var row in datas) {
-                    if(datas[row].commentId == reqName){
+                    if (datas[row].commentId == reqName) {
                       b = b + 1;
                     }
                   }
@@ -68,14 +68,14 @@ var searchReturn = function(que) {
               }
             });
             var buttonEdit = '';
-            if (localStorage.uid){
-              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk1"></span></a>'
+            if (localStorage.uid) {
+              buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk1"></span></a>';
               buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span id="ck1"></span></a>';
-              if (localStorage.uid == data[row].userId){
-                buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+              if (localStorage.uid == data[row].userId) {
+                buttonEdit = '<a href="#" data-id=' + data[row].id + ' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
             }
-            var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
+            var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' + buttonLike + buttonComment + buttonEdit + '</span></div>';
             $('#eventsGallery').append(images + name);
             continue;
           }
@@ -84,18 +84,18 @@ var searchReturn = function(que) {
             //if match in tags, append image to gallery and break (to avoid duplicates for dupe tags)
             var lowerTagName = data[row].tags[tag].toLowerCase();
             if (lowerTagName.includes(lowerQuery)) {
-              var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
-              var buttonLike = ''
+              var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="' + data[row].id + '" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
+              var buttonLike = '';
               var buttonComment = '';
               var buttonEdit = '';
-              if (localStorage.uid){
-                buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>'
+              if (localStorage.uid) {
+                buttonLike = '<a href="#" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>';
                 buttonComment = '<a href="#" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>';
-                if (localStorage.uid == data[row].userId){
-                  buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+                if (localStorage.uid == data[row].userId) {
+                  buttonEdit = '<a href="#" data-id=' + data[row].id + ' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
                 }
               }
-              var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
+              var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' + buttonLike + buttonComment + buttonEdit + '</span></div>';
               $('#eventsGallery').append(images + name);
               break;
             }
@@ -118,7 +118,7 @@ $('#searchButton').on('click', function() {
   var searchQuery = searchInput.value;
 
   var re = /^([A-z]{3,}\s?)*$/;
-  if (!re.test(searchQuery)){
+  if (!re.test(searchQuery)) {
     var message = "Search term must be at least 3 letters. No numbers or special characters.";
     var snack = new SnackBar(message);
     snack.displayMessage(4800);
@@ -130,7 +130,7 @@ $('#searchButton').on('click', function() {
 });
 
 //Handle enter key
-$('#searchItems').keypress(function (e) {
+$('#searchItems').keypress(function(e) {
   if (e.which == 13) {
     localStorage.searchTerm = '';
     var App = window.App || {};
@@ -139,7 +139,7 @@ $('#searchItems').keypress(function (e) {
     var searchQuery = searchInput.value;
 
     var re = /^([A-z]{3,}\s?)*$/;
-    if (!re.test(searchQuery)){
+    if (!re.test(searchQuery)) {
       var message = "Search term must be at least 3 letters. No numbers or special characters.";
       var snack = new SnackBar(message);
       snack.displayMessage(4800);

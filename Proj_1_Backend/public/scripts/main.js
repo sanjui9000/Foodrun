@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 (function(window) {
   'use strict';
   var $ = window.jQuery;

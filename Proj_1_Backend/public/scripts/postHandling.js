@@ -1,16 +1,14 @@
-/* eslint-disable */
-
 //to count to number of likes
-function count(image){
+function count(image) {
   $.ajax({
     type: "GET",
     url: 'http://localhost:2403/votes',
     success: function(data) {
-        var b = 0;
+      var b = 0;
       if (data) {
         for (var row in data) {
           // console.log(image);
-          if(data[row].submissionId == image){
+          if (data[row].submissionId == image) {
             b = b + 1;
           }
         }
@@ -35,8 +33,8 @@ $(document).on('click', '.eventImg', function() {
             //To display food image.
             $('#div1').append('<img class ="centeImage" id="eventImg1" src="' + data[row].imgPath + '" alt="">');
             $('#myModalLabel3').append(data[row].name);
-            var imgName = '<p id="name11" align="justify">' + data[row].name + '</p>'
-            var imgDescription = '<p align="justify">' + data[row].description + '</p>'
+            var imgName = '<p id="name11" align="justify">' + data[row].name + '</p>';
+            var imgDescription = '<p align="justify">' + data[row].description + '</p>';
 
             //To display image name.
             $('#div3').append(imgName);
@@ -44,7 +42,7 @@ $(document).on('click', '.eventImg', function() {
             //To display image description
             $('#div4').append(imgDescription);
 
-            var a = '<img id="like" src="./assets/2.png" />'
+            var a = '<img id="like" src="./assets/2.png" />';
             $('#div7').append(a);
 
             //To display like button.
@@ -54,9 +52,9 @@ $(document).on('click', '.eventImg', function() {
               success: function(data) {
                 if (data.length > 0) {
                   for (var row in data) {
-                      if ((data[row].submissionId == $('#name11').text()) && (data[row].userId == localStorage.uid)) {
+                    if ((data[row].submissionId == $('#name11').text()) && (data[row].userId == localStorage.uid)) {
                       $('#div7').empty();
-                      var a = '<img id="newLike" data-id="' + data[row].id + '" src="./assets/1.png" />'
+                      var a = '<img id="newLike" data-id="' + data[row].id + '" src="./assets/1.png" />';
                       $('#div7').append(a);
                     }
                   }
@@ -81,7 +79,7 @@ $(document).on('click', '.eventImg', function() {
                       var comId = data[row].id;
                       var cancel = '<button data-id="' + comId + '" type="button" class="btn btn-sm pull-right" id="cls1">&times;</button><br/>';
                       var cmnt = '<p align="justify" id="data1"><b>' + data[row].userName + '</b><br/>' + data[row].content + '</p>';
-                      var div = '<div id="eachComment">' + cancel + cmnt + '</div>'
+                      var div = '<div id="eachComment">' + cancel + cmnt + '</div>';
                       $('#list-comments').append(div);
                     }
                   }
@@ -125,7 +123,7 @@ $(document).on('click', '#like', function() {
                     if (key == 'id') {
                       var val1 = element;
                       $('#div7').empty();
-                      var a = '<img id="newLike" data-id="' + val1 + '" src="./assets/1.png" />'
+                      var a = '<img id="newLike" data-id="' + val1 + '" src="./assets/1.png" />';
                       $('#div7').append(a);
                     }
                   });
@@ -151,7 +149,7 @@ $(document).on('click', '#like', function() {
                 if (key == 'id') {
                   var val1 = element;
                   $('#div7').empty();
-                  var a = '<img id="newLike" data-id="' + val1 + '" src="./assets/1.png" />'
+                  var a = '<img id="newLike" data-id="' + val1 + '" src="./assets/1.png" />';
                   $('#div7').append(a);
                 }
                 //To display total like.
@@ -186,7 +184,7 @@ $(document).on('click', '#newLike', function() {
               },
               success: function() {
                 $('#div7').empty();
-                var a = '<img id="like" src="./assets/2.png" />'
+                var a = '<img id="like" src="./assets/2.png" />';
                 $('#div7').append(a);
                 //To display total like.
                 count($('#name11').text());
@@ -219,7 +217,7 @@ $(document).on('click', '#comments', function() {
         }
         //Display textarea for user to write comment
         var form = '<form id="comment-form">';
-        var inputBox = '<input  type="text" placeholder="Write a comment" id="input-comment" class="editor-content">'
+        var inputBox = '<input  type="text" placeholder="Write a comment" id="input-comment" class="editor-content">';
         var finalTag = form + inputBox + '</form>';
         $('#commentBox').append(finalTag);
 
@@ -248,9 +246,9 @@ $(document).on('click', '#comments', function() {
                     if (key == 'id') {
                       var did = element;
                       // To display comment.
-                      var cancel = '<button type="button" data-id="' + did + '"  class="btn btn-sm pull-right"  id="cls1">&times;</button>'
+                      var cancel = '<button type="button" data-id="' + did + '"  class="btn btn-sm pull-right"  id="cls1">&times;</button>';
                       var cmnt = '<p align="justify" id="data1"><b>' + name + '</b>' + '<br/>' + cmntData + '</p>';
-                      var div = '<div id="eachComment">' + cancel + cmnt + '</div>'
+                      var div = '<div id="eachComment">' + cancel + cmnt + '</div>';
                       $('#list-comments').append(div);
                       // console.log(cancel);
                       //To display total number of comments.
@@ -320,7 +318,7 @@ $(document).on('click', '#cls1', function() {
                                 var comId = data[row].id;
                                 var cancel = '<button data-id="' + comId + '" type="button" class="btn btn-sm pull-right" id="cls1">&times;</button><br/>';
                                 var cmnt = '<p align="justify" id="data1"><b>' + data[row].userName + '</b><br/>' + data[row].content + '</p>';
-                                var div = '<div id="eachComment">' + cancel + cmnt + '</div>'
+                                var div = '<div id="eachComment">' + cancel + cmnt + '</div>';
                                 $('#list-comments').append(div);
                                 // console.log(cancel);
                               }
@@ -367,11 +365,11 @@ $("#commentModal").click(function() {
 
 $("#commentModal").on('shown.bs.modal', function() {
   $('#div2').css('height', $('#div1').height());
-  $('.content').css('height', $('#div2').height() -  $('#div3').height() - $('#div4').height() - $('.likeCommentRow').height() - 48);
+  $('.content').css('height', $('#div2').height() - $('#div3').height() - $('#div4').height() - $('.likeCommentRow').height() - 48);
 });
 
 $('#commentModal').on('hide.bs.modal', function() {
-  if (!localStorage.searchTerm){
+  if (!localStorage.searchTerm) {
     localStorage.searchTerm = '';
   }
   searchReturn(localStorage.searchTerm);

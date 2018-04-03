@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 (function(window) {
   'use strict';
   var App = window.App || {};
@@ -43,13 +41,13 @@
       success: function(data) {
         if (data) {
           for (var row in data) {
-            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="'+ data[row].id +'" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
-            var buttonLike = ''
+            var images = '<div class="col-md-3"><div class="thumbnail"> <div class="foodImg"><img data-id="' + data[row].id + '" class="eventImg" src="' + data[row].imgPath + '" alt=""></div>';
+            var buttonLike = '';
             var buttonComment = '';
             var buttonEdit = '';
-            if (localStorage.uid){
-              buttonLike = '<a href="#" "data-name='+data[row].name+'" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk"></span></a>'
-              buttonComment = '<a href="#" "data-name='+data[row].name+'" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span id="ck"></span></a>';
+            if (localStorage.uid) {
+              buttonLike = '<a href="#" "data-name=' + data[row].name + '" class="btn btn-info btn-xs" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span id="lk"></span></a>';
+              buttonComment = '<a href="#" "data-name=' + data[row].name + '" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span id="ck"></span></a>';
               var reqName = data[row].name;
               $.ajax({
                 type: "GET",
@@ -58,7 +56,7 @@
                   var b = 0;
                   if (datas) {
                     for (var row in datas) {
-                      if(datas[row].submissionId == reqName){
+                      if (datas[row].submissionId == reqName) {
                         b = b + 1;
                       }
                     }
@@ -75,7 +73,7 @@
                   var b = 0;
                   if (datas) {
                     for (var row in datas) {
-                      if(datas[row].commentId == reqName){
+                      if (datas[row].commentId == reqName) {
                         b = b + 1;
                       }
                     }
@@ -85,11 +83,11 @@
                   }
                 }
               });
-              if (localStorage.uid == data[row].userId){
-                buttonEdit = '<a href="#" data-id='+data[row].id+' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
+              if (localStorage.uid == data[row].userId) {
+                buttonEdit = '<a href="#" data-id=' + data[row].id + ' class="btn btn-default btn-xs editable" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
               }
             }
-            var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' +buttonLike+buttonComment+buttonEdit + '</span></div>';
+            var name = '<div class="foodCaption"><span class="imgName">' + data[row].name + '</span><span class="likeComment">' + buttonLike + buttonComment + buttonEdit + '</span></div>';
             $('#eventsGallery').append(images + name);
           }
         }

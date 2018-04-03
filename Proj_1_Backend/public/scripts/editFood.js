@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 $(document).on('click', '.editable', function() {
   var attachedId = $(this).data('id');
   $('#editSubmissionModal').modal('toggle');
@@ -18,10 +16,10 @@ $(document).on('click', '.editable', function() {
     }
   });
   $('#editSubmissionModal').on('shown.bs.modal', function() {
-        $('#imagePreview1').css('background-image', 'url(' + this.imgPath + ')');
-        $('#name1').val(this.name);
-        $('#tags1').val(this.tags);
-        $('#description1').val(this.desc);
-        $('#submission1').attr('data-id',this.subid);
+    $('#imagePreview1').css('background-image', 'url(' + this.imgPath + ')');
+    $('#name1').val(this.name);
+    $('#tags1').val(this.tags);
+    $('#description1').val(this.desc);
+    $('#submission1').attr('data-id', this.subid);
   }.bind(this));
 });

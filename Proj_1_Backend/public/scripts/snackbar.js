@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 (function(window) {
   'use strict';
   var App = window.App || {};
@@ -14,14 +12,14 @@
   }
 
   SnackBar.prototype.displayMessage = function(timeout) {
-    var x = document.getElementById("snackbar")
+    var x = document.getElementById("snackbar");
     $('#snackbar').text(this.message);
     x.className = "";
     x.className = "show";
     setTimeout(function() {
       x.className = x.className.replace("show", "");
     }, timeout);
-  }
+  };
 
   App.SnackBar = SnackBar;
   window.App = App;
